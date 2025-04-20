@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhanced To-Do App</title>
+  <link rel="stylesheet" href="Todo.css" />
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h2>📝 Enhanced To-Do List</h2>
+      <!-- 🌗 Dark Mode Toggle -->
+      <label class="toggle-switch">
+        <input type="checkbox" id="modeToggle" onchange="toggleMode()" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <!-- 🔍 Search Box -->
+    <div class="search-group">
+      <input type="text" id="searchInput" placeholder="Search tasks..." oninput="searchTasks()" />
+    </div>
+
+    <!-- 📝 Task Input -->
+    <div class="input-group">
+      <input type="text" id="taskInput" placeholder="Enter Task" />
+      <input type="date" id="dueDate" />
+      <select id="priority">
+        <option value="Low">Low</option>
+        <option value="Medium" selected>Medium</option>
+        <option value="High">High</option>
+      </select>
+      <input type="text" id="categoryInput" placeholder="Category (e.g., Work, Personal)" />
+      <button onclick="addTask()">Add</button>
+    </div>
+
+    <!-- 📁 Export and Sort Buttons -->
+    <div class="button-group">
+      <button onclick="sortTasksByDueDate()">Sort by Due Date</button>
+      <button onclick="exportTasks('json')">Export JSON</button>
+      <button onclick="exportTasks('csv')">Export CSV</button>
+    </div>
+
+    <!-- 📅 Calendar View -->
+    <div class="calendar-view">
+      <h4>📆 Calendar View</h4>
+      <div id="calendarTasks"></div>
+    </div>
+
+    <!-- 📋 Task List -->
+    <ul id="taskList"></ul>
+
+    <!-- 📚 Pagination -->
+    <div id="paginationControls"></div>
+  </div>
+
+  <script src="Todo.js"></script>
+</body>
+</html>
